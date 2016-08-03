@@ -26,7 +26,9 @@ class Waiter
 			list_menu
 			order_food(gets.chomp.to_i)
 		  when 2
-		  puts  "Thank you for your visit"
+		  total = @check.calculate_sum
+		  puts "Your total sum is #{total}."
+		  puts  "Thank you for your visit."
 		  @serving = false
 		  else
 		  puts  "I really don't understand"
@@ -44,7 +46,6 @@ class Waiter
   	if @kitchen.order(dish)
       puts "Dish is on its way"
       @check.add(dish)
-	    p @check
     else
       puts "Sorry this dish is not available"
     end
