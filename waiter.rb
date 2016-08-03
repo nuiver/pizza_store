@@ -1,7 +1,8 @@
 class Waiter
 
-	def initialize(menu)
-	  @menu = menu  
+	def initialize(menu, kitchen)
+	  @menu = menu
+	  @kitchen = kitchen
 	end
 
 	def greet_guest
@@ -19,6 +20,7 @@ class Waiter
   	case order_number
 		  when 1
 			list_menu
+			order_food(gets.chomp.to_i)
 		  when 2
 		  puts  "Thank you for your visit"
 		  else
@@ -27,9 +29,14 @@ class Waiter
 	end
 
 	def list_menu
-  	@menu.contents.each do |dish|
-    	p "#{dish.name}"
+  	@menu.contents.each_with_index do | dish , index |
+    	puts "#{index}. #{dish.name}"
   	end
   end
+
+  def order_food(choice)
+  	dish = @menu.contents[ choice ]
+  	@kitchen.order(dish)
+	end
 
 end
