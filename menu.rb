@@ -9,7 +9,7 @@ class Menu
 	    Ingredient.new(Ingredient::TOMATO, 3),
 	    Ingredient.new(Ingredient::DOUGH, 0.25),
 	    Ingredient.new(Ingredient::MOZZARELLA, 0.2)
-	  	], 12 )
+	  	], 12)
 		@menu << Dish.new("Napoletana", [
 	    Ingredient.new(Ingredient::TOMATO, 3),
 	    Ingredient.new(Ingredient::DOUGH, 0.25),

@@ -23,37 +23,37 @@ class Waiter
   def take_order(order_number)
   	case order_number
 		  when 1
-			list_menu
-			order_food(gets.chomp.to_i)
-		  when 2
-		  total = @check.calculate_sum
-		  puts "Your total sum is #{total}."
-		  puts  "Thank you for your visit."
-		  @serving = false
+				list_menu
+				order_food(gets.chomp.to_i)
+			when 2
+			  puts "Your total sum is #{@check.calculate_sum}."
+			  puts "Thank you for your visit."
+			  @serving = false
 		  else
-		  puts  "I really don't understand"
+		  	puts  "I really don't understand"
 		end
 	end
 
 	def list_menu
-  	@menu.contents.each_with_index do | dish , index |
-    	puts "#{index}. #{dish.name}"
-  	end
+  	@menu.contents.each_with_index { | dish , index | puts "#{index}. #{dish.name}" }
   end
 
   def order_food(choice)
   	dish = @menu.contents[ choice ]
-  	if @kitchen.order(dish)
-      puts "Dish is on its way"
-      @check.add(dish)
-    else
-      puts "Sorry this dish is not available"
-    end
+  	if dish != nil
+	  	if @kitchen.order(dish)
+	      puts "Dish is on its way"
+	      @check.add(dish)
+	    else
+	      puts "Sorry, this dish is not available"
+	    end
+	  else
+	  	puts "That is not something we serve."
+	  end
 	end
 
 	def serving?
   	return @serving
 	end
-
 
 end
