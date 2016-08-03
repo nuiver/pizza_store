@@ -13,7 +13,4 @@ class Dish
  	 @ingredients
 	end
 
-	
-	
-
 end

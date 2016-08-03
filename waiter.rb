@@ -36,7 +36,11 @@ class Waiter
 
   def order_food(choice)
   	dish = @menu.contents[ choice ]
-  	@kitchen.order(dish)
+  	if @kitchen.order(dish)
+      puts "Dish is on its way"
+    else
+      puts "Sorry this dish is not available"
+    end
 	end
 
 end
