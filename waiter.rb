@@ -30,7 +30,7 @@ class Waiter
 			  puts "Thank you for your visit."
 			  @serving = false
 		  else
-		  	puts  "I really don't understand"
+		  	puts "I really don't understand"
 		end
 	end
 
